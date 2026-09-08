@@ -1,0 +1,51 @@
+name: Build Windows EXE Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/windows-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          architecture: 'x86'
+
+      - name: Install build dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyinstaller
+          if (Test-Path requirements.txt) { python -m pip install -r requirements.txt }
+
+      - name: Build Trigger Studio
+        shell: pwsh
+        run: |
+          pyinstaller --noconfirm --clean --onefile --windowed --name War2TriggerStudio --add-data "data;data" --add-data "docs;docs" --add-data "examples;examples" app.py
+          Get-FileHash dist\War2TriggerStudio.exe -Algorithm SHA256 | Format-List
+
+      - name: Publish GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v1.44.0
+          TITLE: Warcraft II Trigger Studio 1.44 - Windows EXE
+        run: |
+          $asset = "dist\War2TriggerStudio.exe"
+          $notes = "Portable 32-bit Windows executable for Trigger Studio 1.44, including the Custom Ability Engine and All Cards Trigger Engine. Built from repository source."
+          gh release view $env:TAG --repo $env:GITHUB_REPOSITORY *> $null
+          if ($LASTEXITCODE -eq 0) {
+            gh release upload $env:TAG $asset --clobber --repo $env:GITHUB_REPOSITORY
+          } else {
+            gh release create $env:TAG $asset --target $env:GITHUB_SHA --title $env:TITLE --notes $notes --repo $env:GITHUB_REPOSITORY
+          }
