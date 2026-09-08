@@ -1,0 +1,540 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 2,
+  "map_file": "",
+  "locations": [
+    {
+      "name": "Player Start",
+      "left": 17,
+      "top": 16,
+      "right": 31,
+      "bottom": 25
+    },
+    {
+      "name": "Enemy Camp",
+      "left": 31,
+      "top": 22,
+      "right": 45,
+      "bottom": 33
+    },
+    {
+      "name": "Circle of Power",
+      "left": 48,
+      "top": 48,
+      "right": 55,
+      "bottom": 55
+    }
+  ],
+  "triggers": [
+    {
+      "name": "00 - Build Circle Mission / Native Objectives",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Enable Trigger-Controlled Results",
+          "args": {}
+        },
+        {
+          "kind": "Set Alliance",
+          "args": {
+            "player_reference_mode": "Live owner slots (P1-P8)",
+            "matrix": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -2,
+            "unit": 44,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 20,
+            "y": 18
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 22,
+            "y": 18
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -2,
+            "unit": 0,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 12,
+            "x": 25,
+            "y": 20
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -2,
+            "unit": 100,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 51,
+            "y": 51
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -3,
+            "unit": 1,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 10,
+            "x": 37,
+            "y": 26
+          }
+        },
+        {
+          "kind": "Set Shared Vision",
+          "args": {
+            "player_reference_mode": "Live owner slots (P1-P8)",
+            "matrix": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "Set Campaign Objective",
+          "args": {
+            "name": "Destroy Bleeding Hollow",
+            "text": "Destroy Bleeding Hollow (Orange)",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Set Campaign Objective",
+          "args": {
+            "name": "Return heroes",
+            "text": "Turalyon and Danath must return to the Circle of Power",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Center Camera",
+          "args": {
+            "location": "Anywhere",
+            "x": 24,
+            "y": 20
+          }
+        },
+        {
+          "kind": "Open Objectives Screen",
+          "args": {
+            "fallback_to_safe": false
+          }
+        },
+        {
+          "kind": "Set Switch",
+          "args": {
+            "name": "Setup Spawned",
+            "state": "Set"
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "Everything including the Circle of Power is trigger-created. All combat units intended for the player use Local Human ownership.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    },
+    {
+      "name": "05 - Verify Heroes / Army / Circle / Enemy / Arm",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Switch",
+          "args": {
+            "name": "Setup Spawned",
+            "state": "Set"
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 44,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 0,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 100,
+            "location": "Circle of Power",
+            "comparison": "At least",
+            "amount": 1
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -3,
+            "unit": 1,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Set Switch",
+          "args": {
+            "name": "Mission Armed",
+            "state": "Set"
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.25,
+      "max_runs": 1
+    },
+    {
+      "name": "10 - Turalyon Dies = Defeat",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Switch",
+          "args": {
+            "name": "Mission Armed",
+            "state": "Set"
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 44,
+            "location": "Anywhere",
+            "comparison": "At most",
+            "amount": 0
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Fail Campaign Objective",
+          "args": {
+            "name": "Return heroes",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Red \u2014 native selected / warning",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Defeat",
+          "args": {}
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.25,
+      "max_runs": 1
+    },
+    {
+      "name": "11 - Danath Dies = Defeat",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Switch",
+          "args": {
+            "name": "Mission Armed",
+            "state": "Set"
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Anywhere",
+            "comparison": "At most",
+            "amount": 0
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Fail Campaign Objective",
+          "args": {
+            "name": "Return heroes",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Red \u2014 native selected / warning",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Defeat",
+          "args": {}
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.25,
+      "max_runs": 1
+    },
+    {
+      "name": "20 - Enemy Destroyed + Heroes Reach Circle = Victory",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Switch",
+          "args": {
+            "name": "Mission Armed",
+            "state": "Set"
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -3,
+            "unit": 1,
+            "location": "Anywhere",
+            "comparison": "At most",
+            "amount": 0
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 44,
+            "location": "Circle of Power",
+            "comparison": "At least",
+            "amount": 1
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Circle of Power",
+            "comparison": "At least",
+            "amount": 1
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Complete Campaign Objective",
+          "args": {
+            "name": "Destroy Bleeding Hollow",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Complete Campaign Objective",
+          "args": {
+            "name": "Return heroes",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Victory",
+          "args": {}
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.25,
+      "max_runs": 1
+    }
+  ],
+  "variables": {},
+  "timers": {},
+  "forces": {},
+  "objectives": {
+    "Destroy Bleeding Hollow": "Destroy Bleeding Hollow (Orange)",
+    "Return heroes": "Turalyon and Danath must return to the Circle of Power"
+  }
+}

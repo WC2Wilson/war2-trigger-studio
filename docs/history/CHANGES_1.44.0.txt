@@ -1,0 +1,27 @@
+Warcraft II Trigger Studio 1.44.0
+=================================
+
+All Cards Trigger Engine
+- Added sidecar schema v4 with portable Scenario.cards definitions.
+- Added a visual Cards manager with add/edit/duplicate/delete/import/export.
+- Added one-click import of all 61 Warcraft II source card arrays / 418 rows.
+- Added one-click Human <-> Orc producer expansion.
+- Translated 141 production/spell rows into executable card actions.
+- Kept all remaining source rows as Card Clicked trigger entry points.
+- Added native-first unit, spell research, technology, and building upgrade routing.
+- Added paid timed cross-faction fallback for unit training and spell/technology research.
+- Added native spell cards using Custom Ability targeting and explicit cross-race caster policy.
+- Added 12 actions and 9 conditions; none is marked multiplayer-safe.
+- Added a full 418-card cross-faction showcase and 21 dedicated primitive examples.
+
+Release totals
+- 666 actions, 380 conditions, 1,046 primitives.
+- 1,051 bundled sidecar profiles; all validate.
+- 4,198 documented parameter fields.
+- 13 unit tests pass.
+
+Safety
+- No unverified Remastered command-card callback is invoked.
+- Native production is attempted through the verified bldg_build_start path.
+- Unsupported cross-faction building replacement fails closed.
+- Complete editable source remains in ./src.

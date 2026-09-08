@@ -1,0 +1,145 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 2,
+  "map_file": "",
+  "locations": [
+    {
+      "name": "Test Center",
+      "left": 20,
+      "top": 20,
+      "right": 24,
+      "bottom": 24
+    },
+    {
+      "name": "Test Target",
+      "left": 30,
+      "top": 20,
+      "right": 34,
+      "bottom": 24
+    },
+    {
+      "name": "Test Area",
+      "left": 16,
+      "top": 16,
+      "right": 40,
+      "bottom": 40
+    },
+    {
+      "name": "Resource Site",
+      "left": 45,
+      "top": 18,
+      "right": 49,
+      "bottom": 22
+    },
+    {
+      "name": "Enemy Area",
+      "left": 30,
+      "top": 30,
+      "right": 38,
+      "bottom": 38
+    },
+    {
+      "name": "Exit Zone",
+      "left": 50,
+      "top": 50,
+      "right": 54,
+      "bottom": 54
+    },
+    {
+      "name": "Location 1",
+      "left": 10,
+      "top": 10,
+      "right": 14,
+      "bottom": 14
+    }
+  ],
+  "triggers": [
+    {
+      "name": "00 - Test Harness Setup",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": 0,
+            "unit": 0,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 22,
+            "y": 22
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": 1,
+            "unit": 1,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 32,
+            "y": 22
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "Shared setup generated for this single-feature test.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    },
+    {
+      "name": "10 - TEST CONDITION - Source Player Can Afford Unit",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Source Player Can Afford Unit",
+          "args": {
+            "player": 0,
+            "new_unit": 0,
+            "comparison": "At least",
+            "amount": 1
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Game Message",
+          "args": {
+            "text": "CONDITION FIRED: Source Player Can Afford Unit",
+            "color": "White \u2014 native highlight",
+            "recipients": "Local player only",
+            "seconds": 3,
+            "also_log": true
+          }
+        }
+      ],
+      "preserved": true,
+      "enabled": true,
+      "comment": "AUTOMATIC/SETUP TEST: the profile supplies common setup where practical. Reads a Warcraft II source-derived 1.28 runtime value. Boolean results compare as 1/0; numeric results use the selected comparison.",
+      "condition_mode": "All",
+      "start_delay": 1.0,
+      "repeat_interval": 0.5,
+      "max_runs": 0
+    }
+  ],
+  "variables": {
+    "Variable 1": 1
+  },
+  "timers": {},
+  "forces": {},
+  "objectives": {}
+}

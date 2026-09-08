@@ -1,0 +1,108 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 2,
+  "map_file": "",
+  "locations": [
+    {
+      "name": "Test Center",
+      "left": 20,
+      "top": 20,
+      "right": 24,
+      "bottom": 24
+    },
+    {
+      "name": "Test Target",
+      "left": 30,
+      "top": 20,
+      "right": 34,
+      "bottom": 24
+    },
+    {
+      "name": "Test Area",
+      "left": 16,
+      "top": 16,
+      "right": 40,
+      "bottom": 40
+    },
+    {
+      "name": "Resource Site",
+      "left": 45,
+      "top": 18,
+      "right": 49,
+      "bottom": 22
+    },
+    {
+      "name": "Enemy Area",
+      "left": 30,
+      "top": 30,
+      "right": 38,
+      "bottom": 38
+    },
+    {
+      "name": "Exit Zone",
+      "left": 50,
+      "top": 50,
+      "right": 54,
+      "bottom": 54
+    },
+    {
+      "name": "Location 1",
+      "left": 10,
+      "top": 10,
+      "right": 14,
+      "bottom": 14
+    },
+    {
+      "name": "Start",
+      "left": 5,
+      "top": 5,
+      "right": 8,
+      "bottom": 8
+    },
+    {
+      "name": "Middle",
+      "left": 15,
+      "top": 15,
+      "right": 18,
+      "bottom": 18
+    },
+    {
+      "name": "End",
+      "left": 25,
+      "top": 25,
+      "right": 28,
+      "bottom": 28
+    }
+  ],
+  "triggers": [
+    {
+      "name": "1.39 Action - Stop Campaign Slideshow",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Stop Campaign Slideshow",
+          "args": {}
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "Trigger Studio 1.39 Warcraft II mission-surface single-feature test. Experimental/state-backed features obey their documented fail-closed boundary.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    }
+  ],
+  "variables": {},
+  "timers": {},
+  "forces": {},
+  "objectives": {}
+}

@@ -1,0 +1,431 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 2,
+  "map_file": "",
+  "locations": [
+    {
+      "name": "Player Start",
+      "left": 17,
+      "top": 16,
+      "right": 30,
+      "bottom": 25
+    },
+    {
+      "name": "Enemy Camp",
+      "left": 31,
+      "top": 22,
+      "right": 45,
+      "bottom": 33
+    }
+  ],
+  "triggers": [
+    {
+      "name": "00 - Build Mission / Native Objectives",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Enable Trigger-Controlled Results",
+          "args": {}
+        },
+        {
+          "kind": "Set Alliance",
+          "args": {
+            "player_reference_mode": "Live owner slots (P1-P8)",
+            "matrix": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ],
+              [
+                4
+              ],
+              [
+                5
+              ],
+              [
+                6
+              ],
+              [
+                7
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 20,
+            "y": 18
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -2,
+            "unit": 0,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 10,
+            "x": 24,
+            "y": 20
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": -3,
+            "unit": 1,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 8,
+            "x": 37,
+            "y": 26
+          }
+        },
+        {
+          "kind": "Set Shared Vision",
+          "args": {
+            "player_reference_mode": "Live owner slots (P1-P8)",
+            "matrix": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "Set Campaign Objective",
+          "args": {
+            "name": "Destroy all enemy forces",
+            "text": "Destroy all enemy forces",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Set Campaign Objective",
+          "args": {
+            "name": "Danath must survive",
+            "text": "Danath must survive",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Center Camera",
+          "args": {
+            "location": "Anywhere",
+            "x": 24,
+            "y": 20
+          }
+        },
+        {
+          "kind": "Open Objectives Screen",
+          "args": {
+            "fallback_to_safe": false
+          }
+        },
+        {
+          "kind": "Set Switch",
+          "args": {
+            "name": "Setup Spawned",
+            "state": "Set"
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "Local Human is resolved from Warcraft at runtime. The native Scenario Objectives screen opens before play begins.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    },
+    {
+      "name": "05 - Verify Local Army / Enemy / Arm",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Switch",
+          "args": {
+            "name": "Setup Spawned",
+            "state": "Set"
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 0,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -3,
+            "unit": 1,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Set Switch",
+          "args": {
+            "name": "Mission Armed",
+            "state": "Set"
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "No result trigger can run until Warcraft confirms your hero, your troops, and the enemy all exist.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.25,
+      "max_runs": 1
+    },
+    {
+      "name": "10 - Danath Dies = Defeat",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Switch",
+          "args": {
+            "name": "Mission Armed",
+            "state": "Set"
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Anywhere",
+            "comparison": "At most",
+            "amount": 0
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Fail Campaign Objective",
+          "args": {
+            "name": "Danath must survive",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Red \u2014 native selected / warning",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Defeat",
+          "args": {}
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.25,
+      "max_runs": 1
+    },
+    {
+      "name": "20 - Enemy Destroyed = Victory",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Switch",
+          "args": {
+            "name": "Mission Armed",
+            "state": "Set"
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -3,
+            "unit": 1,
+            "location": "Anywhere",
+            "comparison": "At most",
+            "amount": 0
+          }
+        },
+        {
+          "kind": "Command",
+          "args": {
+            "player": -2,
+            "unit": 46,
+            "location": "Anywhere",
+            "comparison": "At least",
+            "amount": 1
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Complete Campaign Objective",
+          "args": {
+            "name": "Destroy all enemy forces",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Complete Campaign Objective",
+          "args": {
+            "name": "Danath must survive",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 4
+          }
+        },
+        {
+          "kind": "Victory",
+          "args": {}
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.25,
+      "max_runs": 1
+    }
+  ],
+  "variables": {},
+  "timers": {},
+  "forces": {},
+  "objectives": {
+    "Destroy all enemy forces": "Destroy all enemy forces",
+    "Danath must survive": "Danath must survive"
+  }
+}

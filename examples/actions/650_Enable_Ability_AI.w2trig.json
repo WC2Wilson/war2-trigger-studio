@@ -1,0 +1,79 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 3,
+  "map_file": "",
+  "locations": [
+    {
+      "name": "Ability Target",
+      "left": 28,
+      "top": 28,
+      "right": 32,
+      "bottom": 32
+    }
+  ],
+  "triggers": [
+    {
+      "name": "TEST ACTION - Enable Ability AI",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Enable Ability AI",
+          "args": {
+            "player": 1,
+            "interval": 1.0,
+            "max_casts": 1
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "Trigger Studio 1.43 dedicated Custom Ability Engine action example: Enable Ability AI.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    }
+  ],
+  "variables": {},
+  "timers": {},
+  "forces": {},
+  "objectives": {},
+  "abilities": [
+    {
+      "id": "arcane_bolt",
+      "name": "Arcane Bolt",
+      "description": "A focused custom damage spell.",
+      "icon": "",
+      "hotkey": "B",
+      "target": "Enemy Unit",
+      "range": 8,
+      "mana_cost": 20,
+      "gold_cost": 0,
+      "lumber_cost": 0,
+      "oil_cost": 0,
+      "cooldown": 2.0,
+      "max_charges": 0,
+      "caster_types": [
+        10,
+        24
+      ],
+      "enabled": true,
+      "ai_enabled": true,
+      "ai_priority": 50,
+      "effects": [
+        {
+          "kind": "Damage Target",
+          "amount": 25
+        }
+      ]
+    }
+  ]
+}

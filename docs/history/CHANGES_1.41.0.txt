@@ -1,0 +1,19 @@
+Warcraft II Trigger Studio 1.41.0
+==================================
+
+Professional GUI shell
+----------------------
+- Replaced the single Screen menu with File, Edit, View, Run, Tools and Help menus.
+- Added a compact primary toolbar instead of exposing every secondary tool as a top-row button.
+- Added active-file display and WARCRAFT / TRIGGERS / MAP status badges.
+- Added keyboard shortcuts: Ctrl+O, Ctrl+Shift+O, Ctrl+S, Ctrl+Shift+S, Ctrl+N, Ctrl+D, Ctrl+`, F1, F4, Shift+F4, F5, Shift+F5, F6 and F7.
+- Kept AUTO Attach + Start enabled by default.
+- Kept manual Attach / Detach / Start / Stop / Continue / Step for deep testing.
+- Console no longer steals focus merely because a runtime message is logged.
+- Kept the Trigger Files submenu for switching among mission01/mission02/mission03-style sidecars.
+
+No trigger-catalog changes
+--------------------------
+1.41 is intentionally a GUI/workflow release. The canonical trigger catalog and M multiplayer classifications from 1.40 are preserved without reintroducing aliases or duplicate palette entries.
+
+Editable source is included.

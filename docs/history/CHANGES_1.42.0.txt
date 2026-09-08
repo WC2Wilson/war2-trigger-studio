@@ -1,0 +1,22 @@
+Warcraft II Trigger Studio 1.42.0
+================================
+
+Documentation / example completeness release
+--------------------------------------------
+- Every visible canonical action and condition has one dedicated .w2trig.json example.
+- Every primitive has feature help, one editor customization schema, and an explicit M/non-M multiplayer classification.
+- Every editable parameter now has its own documentation note in the editor and generated manual.
+- Conditions document the standard NOT / invert option; every trigger also documents its shared player, timing, repeat, enable, comment, and All/Any controls.
+- Clause editor adds an Open Example button so the selected action/condition's dedicated profile is one click away.
+- Help adds Documentation Coverage Report.
+- FEATURES.html, EXAMPLES.html, and FEATURE_CATALOG_1.42.json are regenerated directly from the live editor catalog/schema.
+- Check_Documentation.bat / Rebuild_Documentation.bat run the same release audit.
+- Release audit fails if a primitive has duplicate palette placement, missing schema/help/parameter notes, missing example, missing required example fields, or an invalid example.
+
+Preserved from 1.41 / 1.40
+---------------------------
+- Professional File/Edit/View/Run/Tools/Help shell and compact runtime toolbar.
+- Capital M multiplayer eligibility badge.
+- Canonical alias cleanup with legacy sidecar migration.
+- AUTO attach + map/match detection + auto-start, while manual Start/Stop/Detach remain authoritative.
+- Trigger Files workspace for switching among mission sidecars.

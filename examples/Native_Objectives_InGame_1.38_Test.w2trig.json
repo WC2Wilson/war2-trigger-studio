@@ -1,0 +1,95 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 2,
+  "map_file": "",
+  "locations": [],
+  "triggers": [
+    {
+      "name": "00 - Native in-game trigger objectives override map",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Set Campaign Objective",
+          "args": {
+            "name": "Trigger Objective A",
+            "text": "TRIGGER OVERRIDE: Destroy the enemy command center",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 2
+          }
+        },
+        {
+          "kind": "Set Campaign Objective",
+          "args": {
+            "name": "Trigger Objective B",
+            "text": "TRIGGER OVERRIDE: Keep your hero alive",
+            "announce": false,
+            "recipients": "Local player only",
+            "color": "Yellow / gold \u2014 native normal",
+            "seconds": 2
+          }
+        },
+        {
+          "kind": "Open Objectives Screen",
+          "args": {
+            "fallback_to_safe": false
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "1.38 test: Warcraft Menu -> Objectives must show these trigger lines, not the map lines.",
+      "condition_mode": "All",
+      "start_delay": 1.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    },
+    {
+      "name": "10 - Restore map objectives",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Elapsed Time",
+          "args": {
+            "comparison": "At least",
+            "amount": 12
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Restore Map Objectives",
+          "args": {}
+        },
+        {
+          "kind": "Open Objectives Screen",
+          "args": {
+            "fallback_to_safe": false
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": false,
+      "comment": "Optional A/B test: restore Warcraft map/campaign objectives, then reopen the same native in-game Objectives submenu.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    }
+  ],
+  "variables": {},
+  "timers": {},
+  "forces": {},
+  "objectives": {}
+}

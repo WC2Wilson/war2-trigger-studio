@@ -1,0 +1,77 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 4,
+  "map_file": "",
+  "locations": [],
+  "variables": {},
+  "timers": {},
+  "forces": {},
+  "objectives": {},
+  "abilities": [],
+  "cards": [
+    {
+      "id": "stock.sgHBarracksCard.0",
+      "name": "Make Footman",
+      "description": "Source command row sgHBarracksCard[0] using bldg_build_man.",
+      "race": "Human",
+      "page": "sgHBarracksCard",
+      "slot": 0,
+      "icon": "BTN_H_GRUNT_1",
+      "hotkey": "",
+      "producer_types": [
+        60
+      ],
+      "enabled": true,
+      "allow_cross_faction": false,
+      "native_first": true,
+      "action": "Train Unit",
+      "unit_type": 0,
+      "building_type": 58,
+      "spell": "Healing",
+      "target": "None",
+      "upgrade": "Melee Attack",
+      "ability_id": "",
+      "trigger": "Card Function",
+      "arguments_json": "{}",
+      "gold_cost": -1,
+      "lumber_cost": -1,
+      "oil_cost": -1,
+      "seconds": 1.0,
+      "source_array": "sgHBarracksCard",
+      "source_row": 0,
+      "source_callback": "bldg_build_man",
+      "visibility_callback": "bf_gr_ok",
+      "visibility_parameter": "1",
+      "action_parameter": "H_GRUNT",
+      "tooltip_token": "STR_MAKE_FOOTMAN",
+      "target_mask": "NO_MASK"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "TEST ACTION - Enable All Cards",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Enable All Cards",
+          "args": {}
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "Trigger Studio 1.44 dedicated All Cards Trigger Engine action example: Enable All Cards.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    }
+  ]
+}

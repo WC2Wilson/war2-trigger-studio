@@ -1,0 +1,24 @@
+Trigger Studio 1.40.0
+=====================
+- Added capital M badges for conservatively multiplayer-eligible conditions/actions.
+- Added whole-trigger M badge when every clause in that trigger is M-eligible.
+- Added M badges to the palette, clause rows, clause type picker and feature help.
+- Documented the multiplayer contract: simulation-changing M triggers require the same
+  Trigger Studio version + sidecar on participating clients; M is not one-client sync.
+- Consolidated 25 legacy action aliases and 7 legacy condition aliases out of the
+  visible palette while preserving old-sidecar migration.
+- Removed duplicate category placements and old alias example duplicates.
+- Canonical visible catalog is now 637 actions + 361 conditions = 998 primitives.
+- Every visible primitive has exactly one category, a schema, help text, M metadata and
+  a dedicated canonical validation example.
+- Added event-specific customization fields for order/button, attack/projectile,
+  resource, spell, vision/range and production lifecycle conditions.
+- Added AUTO Attach + Start (default ON).
+- AUTO performs a read-only Warcraft process/game-state probe, waits for GAME_RUN,
+  performs the normal validated attach, detects the live .pud name best-effort,
+  switches/opens a matching trigger sidecar, and starts triggers automatically.
+- Manual Attach / Start / Stop / Detach remain available. Manual Stop/Detach suppresses
+  AUTO restart for the current match and automatically releases on the next match.
+- Added complete machine-readable and HTML documentation plus multiplayer/duplicate/
+  auto-match audit documents.
+- Complete editable source remains shipped.

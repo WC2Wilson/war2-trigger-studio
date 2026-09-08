@@ -1,0 +1,6 @@
+Warcraft II Trigger Studio 1.44 — Runtime Protection
+==================================================
+
+Trigger Studio validates the supported runtime layout before enabling live integrations. Features that cannot establish the required runtime state fail closed rather than guessing.
+
+Use the compatibility check and validation tools before live testing, and keep manual Attach/Detach and Start/Stop controls available while developing a scenario.

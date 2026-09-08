@@ -1,0 +1,168 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 2,
+  "map_file": "",
+  "locations": [
+    {
+      "name": "Test Center",
+      "left": 20,
+      "top": 20,
+      "right": 24,
+      "bottom": 24
+    },
+    {
+      "name": "Test Target",
+      "left": 30,
+      "top": 20,
+      "right": 34,
+      "bottom": 24
+    },
+    {
+      "name": "Test Area",
+      "left": 16,
+      "top": 16,
+      "right": 40,
+      "bottom": 40
+    },
+    {
+      "name": "Resource Site",
+      "left": 45,
+      "top": 18,
+      "right": 49,
+      "bottom": 22
+    },
+    {
+      "name": "Enemy Area",
+      "left": 30,
+      "top": 30,
+      "right": 38,
+      "bottom": 38
+    },
+    {
+      "name": "Exit Zone",
+      "left": 50,
+      "top": 50,
+      "right": 54,
+      "bottom": 54
+    },
+    {
+      "name": "Location 1",
+      "left": 10,
+      "top": 10,
+      "right": 14,
+      "bottom": 14
+    }
+  ],
+  "triggers": [
+    {
+      "name": "00 - Test Harness Setup",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": 0,
+            "unit": 0,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 22,
+            "y": 22
+          }
+        },
+        {
+          "kind": "Create Units",
+          "args": {
+            "player": 1,
+            "unit": 1,
+            "location": "Anywhere",
+            "amount_mode": "Fixed amount",
+            "amount": 1,
+            "x": 32,
+            "y": 22
+          }
+        },
+        {
+          "kind": "Scene Create Actor",
+          "args": {
+            "actor": "Archer",
+            "player": 0,
+            "unit": 8,
+            "location": "Anywhere",
+            "x": 24,
+            "y": 26,
+            "facing": 4,
+            "invincible": false
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "Shared setup generated for this single-feature test.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    },
+    {
+      "name": "10 - TEST ACTION - Native Portrait Transmission",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Always",
+          "args": {}
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Native Portrait Transmission",
+          "args": {
+            "actor": "Archer",
+            "speaker": "Archer",
+            "text": "We cannot hold them much longer!",
+            "voice_bark": true,
+            "center_camera": false,
+            "wait": true,
+            "seconds": 4.0,
+            "recipients": "All active players",
+            "color": "White \u2014 native highlight",
+            "fallback_to_safe": true
+          }
+        },
+        {
+          "kind": "Game Message",
+          "args": {
+            "text": "TEST EXECUTED: Native Portrait Transmission",
+            "color": "White \u2014 native highlight",
+            "recipients": "Local player only",
+            "seconds": 3,
+            "also_log": true
+          }
+        }
+      ],
+      "preserved": false,
+      "enabled": true,
+      "comment": "AUTOMATIC/SETUP TEST: the profile supplies common setup where practical. Friendly alias of the experimental portrait transmission bridge; falls back to validated Scene Transmission until Remastered portrait-queue ABI ownership is proven.",
+      "condition_mode": "All",
+      "start_delay": 1.0,
+      "repeat_interval": 1.0,
+      "max_runs": 1
+    }
+  ],
+  "variables": {
+    "Variable 1": 1
+  },
+  "timers": {},
+  "forces": {},
+  "objectives": {}
+}

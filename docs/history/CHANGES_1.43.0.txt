@@ -1,0 +1,30 @@
+Warcraft II Trigger Studio 1.43.0
+================================
+
+Custom Ability Engine
+---------------------
+- Added a visual Custom Ability Engine manager to Tools and the main toolbar.
+- Added portable version-3 sidecar ability definitions while retaining version-1/2 loading.
+- Added seven target modes, four resource costs, cooldowns, charges, caster restrictions,
+  local hotkeys, ordered effect stacks, and trigger-owned AI priorities.
+- Added 17 effect types built from validated Trigger Studio/native Warcraft paths.
+- Added resumable cast transactions so simulation-mailbox deferrals do not double-fire effects.
+- Added started/finished/failed ability events and per-owner cast telemetry.
+- Added 17 ability actions and 10 ability conditions, all intentionally unbadged for multiplayer.
+- Added one dedicated validated example per new primitive plus a five-ability showcase.
+- Added ability JSON import/export and definition validation.
+- Public palettes, help, documentation, and examples use neutral Warcraft II source terminology.
+
+Release audit
+-------------
+- 654 canonical actions / 654 dedicated action examples
+- 371 canonical conditions / 371 dedicated condition examples
+- 1,025 visible primitives
+- 1,029 bundled .w2trig.json profiles; all validate
+- 4,153 documented parameter fields
+
+Live validation target
+----------------------
+Warcraft II Remastered x86 1.0.2.2818 (PE timestamp 0x699E13E7). Unknown or
+incompatible builds remain fail-closed. Custom hotkeys, map-click targeting, native
+effects, and AI casts still require a controlled Windows live-match smoke test.

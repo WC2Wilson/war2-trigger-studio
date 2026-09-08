@@ -1,0 +1,68 @@
+{
+  "schema": "war2-trigger-sidecar",
+  "version": 2,
+  "map_file": "",
+  "locations": [
+    {
+      "name": "Start",
+      "left": 5,
+      "top": 5,
+      "right": 8,
+      "bottom": 8
+    },
+    {
+      "name": "Middle",
+      "left": 15,
+      "top": 15,
+      "right": 18,
+      "bottom": 18
+    },
+    {
+      "name": "End",
+      "left": 25,
+      "top": 25,
+      "right": 28,
+      "bottom": 28
+    }
+  ],
+  "triggers": [
+    {
+      "name": "1.39 Condition - Campaign Map Scale",
+      "players": [
+        0
+      ],
+      "conditions": [
+        {
+          "kind": "Campaign Map Scale",
+          "args": {
+            "comparison": "At least",
+            "amount": 1.0
+          }
+        }
+      ],
+      "actions": [
+        {
+          "kind": "Game Message",
+          "args": {
+            "text": "Condition fired: Campaign Map Scale",
+            "recipients": "Local player only",
+            "color": "White \u2014 native highlight",
+            "seconds": 4,
+            "also_log": true
+          }
+        }
+      ],
+      "preserved": true,
+      "enabled": true,
+      "comment": "Trigger Studio 1.39 Warcraft II source source-surface test.",
+      "condition_mode": "All",
+      "start_delay": 0.0,
+      "repeat_interval": 0.5,
+      "max_runs": 0
+    }
+  ],
+  "variables": {},
+  "timers": {},
+  "forces": {},
+  "objectives": {}
+}

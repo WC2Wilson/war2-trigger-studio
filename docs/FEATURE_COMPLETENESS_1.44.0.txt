@@ -1,0 +1,27 @@
+Warcraft II Trigger Studio 1.44.0 — Feature Documentation Completeness
+============================================================================
+
+STATUS: PASS
+Canonical actions: 666
+Canonical conditions: 380
+Total visible primitives: 1046
+Dedicated action examples: 666
+Dedicated condition examples: 380
+All bundled .w2trig examples: 1051
+Invalid examples: 0
+Documented customizable parameter fields: 4198
+M actions: 462
+M conditions: 210
+
+Release requirements:
+PASS - canonical action names are unique.
+PASS - canonical condition names are unique.
+PASS - every primitive has exactly one palette category placement.
+PASS - every primitive has an editor customization schema.
+PASS - every primitive has non-placeholder feature documentation.
+PASS - every editable parameter has its own documentation note.
+PASS - every primitive has a dedicated example profile.
+PASS - every dedicated example contains every required customizable field.
+PASS - every bundled example loads and passes Scenario.validate().
+PASS - every primitive has an M/non-M multiplayer classification (classification function is total over canonical catalog).
+PASS - FEATURES.html, EXAMPLES.html, and FEATURE_CATALOG_1.44.json are generated from the same live editor schema used by the GUI.
